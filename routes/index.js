@@ -32,7 +32,7 @@ router.post('/zombies/new', function(req, res) {
     var id = 0;
     if (nuevoZombie.name == "" || nuevoZombie.type == "") {
         id++;
-        json.push({ "mensaje": "No has llenado todos los datos, intenta de nuevo.", "id": id });
+        json.push({ "mensaje": "Hay algunos datos vacíos, intenta llenarlos todos.", "id": id });
         res.render('add', { alert: json, color: "alert-danger" })
     } else {
         nuevoZombie.save(function(error) {
@@ -136,7 +136,7 @@ router.post('/cerebros/new', function(req, res) {
     var id = 0;
     if (nuevoCerebro.flavor == "" || nuevoCerebro.description == "") {
         id++;
-        json.push({ "mensaje": "No has llenado todos los datos, intenta de nuevo.", "id": id });
+        json.push({ "mensaje": "Hay algunos datos vacíos, intenta llenarlos todos.", "id": id });
         res.render('cerebro/add', { alert: json, color: "alert-danger" })
 
     } else {
@@ -302,7 +302,7 @@ router.post('/users/new', function(req, res) {
     var id = 0;
     if (nuevoUser.username == "" || nuevoUser.password == "") {
         id++;
-        json.push({ "mensaje": "No has llenado todos los datos, intenta de nuevo.", "id": id });
+        json.push({ "mensaje": "Hay algunos datos vacíos, intenta llenarlos todos.", "id": id });
         res.render('login/add', { alert: json, color: "alert-danger" })
 
     } else {

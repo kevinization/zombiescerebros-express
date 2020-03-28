@@ -9,12 +9,12 @@ var mongoose = require('mongoose');
 var modelSchema = mongoose.Schema({
     name: {
         type: String,
-        minlength: [4, "El nombre es muy corto: min 4 caracteres"],
-        maxlength: [12, "El nombre es muy largo: max 12 caracteres"]
+        minlength: [4, "Nombre demasiado corto, ingresa uno de mínimo 4 letras."],
+        maxlength: [12, "Nombre demasiado largo, ingresa uno de mínimo 12 letras."]
     },
     email: {
         type: String,
-        required: [true, "El correo electrónico es obligatorio"],
+        required: [true, "El correo electrónico se requiere obligatoriamente"],
         unique: true
     },
     type: {

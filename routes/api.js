@@ -36,7 +36,7 @@ router.post('/zombies/new', function(req, res) {
     var id = 0;
     if (nuevoZombie.name == "" || nuevoZombie.name == undefined || nuevoZombie.type == "" || nuevoZombie.type == undefined) {
         id++;
-        json.push({ "mensaje": "No has llenado todos los datos, intenta de nuevo.", "id": id });
+        json.push({ "mensaje": "Hay algunos datos vacíos, intenta llenarlos todos.", "id": id });
         res.status(500).json({ mensajeError: json });
     } else {
         nuevoZombie.save(function(error) {
@@ -143,7 +143,7 @@ router.post('/cerebros/new', function(req, res) {
     var id = 0;
     if (nuevoCerebro.flavor == "" || nuevoCerebro.description == "" || nuevoCerebro.flavor == undefined || nuevoCerebro.description == undefined) {
         id++;
-        json.push({ "mensaje": "No has llenado todos los datos, intenta de nuevo.", "id": id });
+        json.push({ "mensaje": "Hay algunos datos vacíos, intenta llenarlos todos.", "id": id });
         res.render('cerebro/add', { alert: json, color: "alert-danger" })
 
     } else {
@@ -255,7 +255,7 @@ router.post('/users/login', function(req, res) {
                     if(result){
                       res.status(200).json({mensajeError:'', mensajeExito: 'success'});
                     } else {
-                      res.status(500).json({mensajeError:'Contraseña incorrecta', mensajeExito: ''});
+                      res.status(500).json({mensajeError:'Algunos datos no son correctos, verifica.', mensajeExito: ''});
                     }
                   });
             }
@@ -283,7 +283,7 @@ router.post('/users/new', function(req, res) {
         var id = 0;
         if (nuevoUser.username == undefined || nuevoUser.password == undefined || nuevoUser.username == "" || nuevoUser.password == "") {
             id++;
-            json.push({ "mensaje": "No has llenado todos los datos, intenta de nuevo.", "id": id });
+            json.push({ "mensaje": "Hay algunos datos vacíos, intenta llenarlos todos.", "id": id });
             res.status(500).json({ mensajeError: json, mensajeExito:''});
     
         } else {
